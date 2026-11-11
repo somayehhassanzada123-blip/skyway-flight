@@ -1604,4 +1604,3 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .sw-menu-toggle span, .sw-mobile-nav, .sw-mobile-nav * { transition: none !important; }
 }
-
