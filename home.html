@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SKY WAY Discover and Book Flights Worldwide</title>
+  <meta name="description" content="Find the best destinations and book flights in seconds with real-time prices. Aerolight — best fares guaranteed." />
+  <meta property="og:title" content="Aerolight — Discover and Book Flights Worldwide" />
+  <meta property="og:description" content="Find the best destinations and book flights in seconds with real-time prices." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#04060c" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+
+
+  <!-- this is navbar -->
+
+    <header class="sw-header" data-sw-header>
+  <div class="sw-nav-shell">
+    <a class="sw-brand" href="./index.html" aria-label="SkyWay home">
+      <span class="sw-brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none">
+          <path d="M5 22.2 34.8 7.5 23.1 35l-4.2-10.8L5 22.2Z" fill="currentColor" opacity=".96"/>
+          <path d="m18.9 24.2 7.6-7.1" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="sw-brand-name">Sky<span>Way</span></span>
+    </a>
+
+    <nav class="sw-primary-nav" aria-label="Main navigation">
+      <a href="./index.html">Home</a>
+      <a href="./flights.html">Flights</a>
+      <a href="./hotels.html">Hotels</a>
+      <a href="./packages.html">Packages</a>
+      <a href="./deals.html">Deals</a>
+      <a href="./about.html">About Us</a>
+    </nav>
+
+    <div class="sw-nav-actions">
+      <button class="sw-theme-toggle" type="button" data-sw-theme-toggle aria-label="Switch to light theme" title="Toggle theme">
+        <svg class="sw-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.4A8.7 8.7 0 0 1 8.6 3.8 8.8 8.8 0 1 0 20.2 15.4Z"/></svg>
+        <svg class="sw-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+      </button>
+      <a class="sw-button sw-button-quiet" href="./login.html">Log in</a>
+      <a class="sw-button sw-button-primary" href="./signup.html">Sign up</a>
+    </div>
+
+    <button class="sw-menu-toggle" type="button" data-sw-menu-toggle aria-expanded="false" aria-controls="sw-mobile-menu" aria-label="Open navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="sw-mobile-nav" id="sw-mobile-menu" data-sw-mobile-menu aria-label="Mobile navigation" hidden>
+    <a href="./index.html">Home</a>
+    <a href="./flights.html">Flights</a>
+    <a href="./hotels.html">Hotels</a>
+    <a href="./packages.html">Packages</a>
+    <a href="./deals.html">Deals</a>
+    <a href="./about.html">About Us</a>
+    <div class="sw-mobile-actions">
+      <a class="sw-button sw-button-quiet" href="./login.html">Log in</a>
+      <a class="sw-button sw-button-primary" href="./signup.html">Sign up</a>
+    </div>
+  </nav>
+</header>
+
+
+
+  <!-- ===================================================================
+       SVG ICON SPRITE (inline so it also works when opened from disk)
+       =================================================================== -->
+  <svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-logo" viewBox="0 0 32 32"><path fill="currentColor" stroke="none" fill-rule="evenodd" d="M16 3.2c1.15 0 2.2.62 2.78 1.62l10.1 17.5c1.24 2.14-.3 4.82-2.78 4.82H5.9c-2.47 0-4.02-2.68-2.78-4.82l10.1-17.5A3.2 3.2 0 0 1 16 3.2Zm0 12.1-4.9 8.5h9.8L16 15.3Z"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol>
+    <symbol id="i-swap" viewBox="0 0 24 24"><path d="m3 16 4 4 4-4M7 20V4M21 8l-4-4-4 4M17 4v16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-arrow-long" viewBox="0 0 40 12"><path d="M0 6h38M33 1l5 5-5 5"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"/><circle cx="7.5" cy="7.5" r="1.2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-x-logo" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M17.75 3h3.07l-6.71 7.67L22 21h-6.18l-4.84-6.33L5.44 21H2.37l7.18-8.2L2 3h6.34l4.37 5.78L17.75 3Zm-1.08 16.18h1.7L7.4 4.73H5.58l11.09 14.45Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+  </svg>
+
+  <!-- ===================================================================
+       HEADER / NAVIGATION
+       =================================================================== -->
+<main>
+    <!-- =================================================================
+         HERO — heading, rotating 3D Earth, flight cards & search panel
+         ================================================================= -->
+    <section class="hero" id="flights" aria-labelledby="heroTitle">
+      <canvas class="hero__stars" id="starCanvas" aria-hidden="true"></canvas>
+      <div class="hero__grid" aria-hidden="true"></div>
+
+      <!-- 3D Earth (Three.js). Falls back to a static image if WebGL is unavailable -->
+      <div class="globe" id="globe" aria-hidden="true">
+        <img class="globe__fallback" src="assets/images/earth-globe.png" alt="" />
+      </div>
+      <div class="hero__fade" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <span class="badge reveal">Best fares guaranteed</span>
+          <h1 class="hero__title reveal" id="heroTitle">
+            Discover and Book<br />
+            Flights <span class="text-accent">Worldwide</span>
+          </h1>
+          <p class="hero__text reveal">Find the best destinations and book flights in seconds with real-time prices.</p>
+          <a href="#searchPanel" class="btn btn--outline-glow reveal" id="buyTicketsBtn">Buy Tickets Now</a>
+        </div>
+
+        <div class="hero__stage">
+          <!-- Left: live flight cards -->
+          <div class="flight-cards">
+            <article class="glass-card route-card float-a" aria-label="Live flight status">
+              <div class="route">
+                <div class="route__point">
+                  <strong>LOS</strong><small>Lagos</small><em>06:00</em>
+                </div>
+                <div class="route__path" aria-hidden="true">
+                  <i></i><i></i><svg class="icon icon--plane-right"><use href="#i-plane"/></svg><i></i><i></i>
+                </div>
+                <div class="route__point route__point--end">
+                  <strong>NYC</strong><small>New York</small><em>06:00</em>
+                </div>
+              </div>
+              <div class="route">
+                <div class="route__point">
+                  <strong>PVG</strong><small>Shanghai</small><em>06:00</em>
+                </div>
+                <div class="route__path" aria-hidden="true">
+                  <span class="status-chip" id="flightStatus">Delayed</span>
+                </div>
+                <div class="route__point route__point--end">
+                  <strong>HKG</strong><small>Hong Kong</small><em>06:00</em>
+                </div>
+              </div>
+            </article>
+
+            <article class="glass-card boarding-card float-b" aria-label="Boarding status">
+              <span class="chip-primary">Now Boarding</span>
+              <p class="boarding-card__flight">Flight 739-283</p>
+              <div class="boarding-card__route">
+                <div><strong>LOS</strong><small>Lagos</small></div>
+                <div class="route__path route__path--sm" aria-hidden="true">
+                  <i></i><svg class="icon icon--plane-right"><use href="#i-plane"/></svg><i></i>
+                </div>
+                <div class="text-right"><strong>NYC</strong><small>New York</small></div>
+              </div>
+              <div class="capacity">
+                <div class="capacity__bar"><span id="capacityBar"></span></div>
+                <div class="capacity__meta"><span>Capacity</span><span id="capacityValue">0%</span></div>
+              </div>
+              <div class="avatars" aria-label="Passengers boarding">
+                <span style="--h:210">AK</span><span style="--h:20">JM</span><span style="--h:150">SO</span><span style="--h:280">LT</span><span class="avatars__more">+5</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- Right: icon rail + search panel -->
+          <div class="search-wrap" id="searchPanel">
+            <div class="search-rail" role="toolbar" aria-label="Search tools">
+              <button class="rail-btn" data-rail="flexible" aria-pressed="false" title="Flexible dates (±3 days)">
+                <svg class="icon"><use href="#i-calendar"/></svg>
+              </button>
+              <button class="rail-btn" data-rail="hotels" aria-pressed="false" title="Search hotels">
+                <svg class="icon"><use href="#i-building"/></svg>
+              </button>
+              <div class="rail-pop-wrap">
+                <button class="rail-btn" data-rail="cabin" aria-expanded="false" title="Cabin class">
+                  <svg class="icon"><use href="#i-sliders"/></svg>
+                </button>
+                <div class="popover cabin-pop" id="cabinPop" role="menu">
+                  <p class="popover__title">Cabin class</p>
+                  <button role="menuitemradio" aria-checked="true" data-cabin="Economy">Economy</button>
+                  <button role="menuitemradio" aria-checked="false" data-cabin="Premium Economy">Premium Economy</button>
+                  <button role="menuitemradio" aria-checked="false" data-cabin="Business">Business</button>
+                  <button role="menuitemradio" aria-checked="false" data-cabin="First">First</button>
+                </div>
+              </div>
+              <button class="rail-btn is-active" data-rail="flights" aria-pressed="true" title="Search flights">
+                <svg class="icon"><use href="#i-plane"/></svg>
+              </button>
+            </div>
+
+            <form class="glass-card search-panel" id="searchForm" novalidate>
+              <!-- Trip type tabs -->
+              <div class="segmented" role="tablist" aria-label="Trip type" id="tripTabs">
+                <button type="button" role="tab" class="segmented__btn is-active" aria-selected="true" data-trip="round">Round Trip</button>
+                <button type="button" role="tab" class="segmented__btn" aria-selected="false" data-trip="oneway">One Way</button>
+                <button type="button" role="tab" class="segmented__btn" aria-selected="false" data-trip="multi">Multi-City</button>
+              </div>
+
+              <div class="search-fields" id="flightFields">
+                <div class="field-group">
+                  <div class="field autocomplete">
+                    <label for="fromInput" class="sr-only">From</label>
+                    <input id="fromInput" name="from" type="text" autocomplete="off" placeholder="From" value="Jakarta (CGK)" />
+                    <ul class="suggestions" role="listbox"></ul>
+                  </div>
+                  <div class="field autocomplete">
+                    <label for="toInput" class="sr-only">To</label>
+                    <input id="toInput" name="to" type="text" autocomplete="off" placeholder="To" value="Tokyo (NRT)" />
+                    <ul class="suggestions" role="listbox"></ul>
+                  </div>
+                  <button type="button" class="swap-btn" id="swapBtn" aria-label="Swap origin and destination">
+                    <svg class="icon"><use href="#i-swap"/></svg>
+                  </button>
+                </div>
+
+                <div class="field-row" id="dateRow">
+                  <div class="field">
+                    <label for="departInput" class="field__label">Depart</label>
+                    <input id="departInput" name="depart" type="date" />
+                  </div>
+                  <div class="field" id="returnField">
+                    <label for="returnInput" class="field__label">Return</label>
+                    <input id="returnInput" name="return" type="date" />
+                  </div>
+                </div>
+
+                <!-- Extra legs for Multi-City (filled by script.js) -->
+                <div class="multi-legs" id="multiLegs" hidden>
+                  <div id="legList"></div>
+                  <button type="button" class="link-btn" id="addLegBtn"><svg class="icon"><use href="#i-plus"/></svg> Add another flight</button>
+                </div>
+              </div>
+
+              <!-- Hotel search mode -->
+              <div class="search-fields" id="hotelFields" hidden>
+                <div class="field">
+                  <label for="hotelCity" class="sr-only">Destination city</label>
+                  <input id="hotelCity" type="text" placeholder="Where are you staying?" value="Tokyo, Japan" />
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="checkIn" class="field__label">Check-in</label>
+                    <input id="checkIn" type="date" />
+                  </div>
+                  <div class="field">
+                    <label for="checkOut" class="field__label">Check-out</label>
+                    <input id="checkOut" type="date" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Passengers dropdown -->
+              <div class="field pax">
+                <button type="button" class="pax__toggle" id="paxToggle" aria-expanded="false" aria-controls="paxMenu">
+                  <span id="paxLabel">1 Adult, Economy</span>
+                  <svg class="icon"><use href="#i-chevron-down"/></svg>
+                </button>
+                <div class="popover pax__menu" id="paxMenu">
+                  <div class="counter" data-type="adults">
+                    <div><strong>Adults</strong><small>12+ years</small></div>
+                    <div class="counter__ctrl"><button type="button" data-step="-1" aria-label="Fewer adults"><svg class="icon"><use href="#i-minus"/></svg></button><output>1</output><button type="button" data-step="1" aria-label="More adults"><svg class="icon"><use href="#i-plus"/></svg></button></div>
+                  </div>
+                  <div class="counter" data-type="children">
+                    <div><strong>Children</strong><small>2–11 years</small></div>
+                    <div class="counter__ctrl"><button type="button" data-step="-1" aria-label="Fewer children"><svg class="icon"><use href="#i-minus"/></svg></button><output>0</output><button type="button" data-step="1" aria-label="More children"><svg class="icon"><use href="#i-plus"/></svg></button></div>
+                  </div>
+                  <div class="counter" data-type="infants">
+                    <div><strong>Baby</strong><small>Under 2</small></div>
+                    <div class="counter__ctrl"><button type="button" data-step="-1" aria-label="Fewer babies"><svg class="icon"><use href="#i-minus"/></svg></button><output>0</output><button type="button" data-step="1" aria-label="More babies"><svg class="icon"><use href="#i-plus"/></svg></button></div>
+                  </div>
+                  <button type="button" class="btn btn--primary btn--block btn--sm" id="paxDone">Done</button>
+                </div>
+              </div>
+
+              <label class="checkbox">
+                <input type="checkbox" id="termsCheck" />
+                <span class="checkbox__box"><svg class="icon"><use href="#i-check"/></svg></span>
+                <span>I accept the Terms &amp; Conditions</span>
+              </label>
+              <p class="flex-note" id="flexNote" hidden><svg class="icon"><use href="#i-calendar"/></svg> Flexible dates on — searching ±3 days</p>
+
+              <div class="search-actions">
+                <button type="submit" class="btn btn--primary btn--search">
+                  <svg class="icon"><use href="#i-search"/></svg> <span id="searchLabel">Search</span>
+                </button>
+                <button type="button" class="clear-btn" id="clearBtn" aria-label="Clear search">
+                  <svg class="icon"><use href="#i-x"/></svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         POPULAR DESTINATIONS
+         ================================================================= -->
+    <section class="section destinations" id="destinations" aria-labelledby="destTitle">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="eyebrow reveal">Explore</p>
+            <h2 class="section-title reveal" id="destTitle">Popular <span class="text-accent">Destinations</span></h2>
+            <p class="section-text reveal">Handpicked by our travel experts based on price, weather, and traveler reviews.</p>
+          </div>
+          <button class="view-all reveal" id="viewAllBtn">
+            View All Destinations <svg class="icon icon--long"><use href="#i-arrow-long"/></svg>
+          </button>
+        </div>
+
+        <div class="dest-grid">
+          <button class="dest-card dest-card--tall reveal" data-city="Tokyo (NRT)" data-name="Tokyo">
+            <img src="assets/images/tokyo.jpg" alt="Tokyo Tower above the Tokyo skyline at dusk" loading="lazy" width="832" height="1152" />
+            <span class="price-chip">From $420</span>
+            <span class="dest-card__info"><strong>Tokyo</strong><small>Japan</small></span>
+          </button>
+          <button class="dest-card reveal" data-city="Paris (CDG)" data-name="Paris">
+            <img src="assets/images/paris.jpg" alt="Eiffel Tower at sunset in Paris" loading="lazy" width="1152" height="768" />
+            <span class="price-chip">From $610</span>
+            <span class="dest-card__info"><strong>Paris</strong><small>France</small></span>
+          </button>
+          <button class="dest-card reveal" data-city="Dubai (DXB)" data-name="Dubai">
+            <img src="assets/images/dubai.jpg" alt="Burj Al Arab hotel on the sea in Dubai" loading="lazy" width="1152" height="768" />
+            <span class="price-chip">From $390</span>
+            <span class="dest-card__info"><strong>Dubai</strong><small>UAE</small></span>
+          </button>
+          <button class="dest-card reveal" data-city="Amsterdam (AMS)" data-name="Amsterdam">
+            <img src="assets/images/amsterdam.jpg" alt="Canal houses in Amsterdam" loading="lazy" width="1152" height="768" />
+            <span class="price-chip">From $580</span>
+            <span class="dest-card__info"><strong>Amsterdam</strong><small>Netherlands</small></span>
+          </button>
+          <button class="dest-card reveal" data-city="Bali (DPS)" data-name="Bali">
+            <img src="assets/images/bali.jpg" alt="Temple on a misty lake in Bali" loading="lazy" width="1152" height="768" />
+            <span class="price-chip">From $180</span>
+            <span class="dest-card__info"><strong>Bali</strong><small>Indonesia</small></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         BOOK IN 4 EASY STEPS
+         ================================================================= -->
+    <section class="section steps" id="steps" aria-labelledby="stepsTitle">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="eyebrow reveal">Simple &amp; Fast</p>
+          <h2 class="section-title reveal" id="stepsTitle">Book in <span class="text-accent">4 Easy</span> Steps</h2>
+          <p class="section-text reveal">Handpicked by our travel experts based on price, weather, and traveler reviews.</p>
+        </div>
+
+        <ol class="steps-list" id="stepsList">
+          <li class="step reveal">
+            <span class="step__num">01</span>
+            <h3>Search Your Route</h3>
+            <p>Enter your departure city, destination, and travel dates to see available flights in real time.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">02</span>
+            <h3>Compare Prices</h3>
+            <p>Filter by airline, stops, duration, and cabin class. Our price calendar shows cheapest days to fly.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">03</span>
+            <h3>Pick Your Seat</h3>
+            <p>Select your preferred seat on an interactive seat map. Add meals, baggage, or travel insurance.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">04</span>
+            <h3>Fly &amp; Enjoy</h3>
+            <p>Receive instant confirmation &amp; e-ticket. Manage your booking 24/7 from the app or web.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         HOT DEALS (tabs + countdown)
+         ================================================================= -->
+    <section class="section deals" id="deals" aria-labelledby="dealsTitle">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="eyebrow reveal">Limited Time</p>
+            <h2 class="section-title reveal" id="dealsTitle">Hot <span class="text-accent">Flight Deals</span></h2>
+            <p class="section-text reveal">Fresh fares updated every hour. Deals end in <strong class="countdown" id="countdown">00:00:00</strong></p>
+          </div>
+          <div class="tabs reveal" role="tablist" aria-label="Filter deals by region" id="dealTabs">
+            <button role="tab" class="tabs__btn is-active" aria-selected="true" data-filter="all">All</button>
+            <button role="tab" class="tabs__btn" aria-selected="false" data-filter="asia">Asia</button>
+            <button role="tab" class="tabs__btn" aria-selected="false" data-filter="europe">Europe</button>
+            <button role="tab" class="tabs__btn" aria-selected="false" data-filter="middle-east">Middle East</button>
+          </div>
+        </div>
+
+        <div class="deal-grid" id="dealGrid">
+          <article class="deal-card" data-region="asia">
+            <div class="deal-card__top"><span class="airline" style="--h:350">JL</span><span class="discount">-32%</span></div>
+            <div class="deal-route"><div><strong>CGK</strong><small>Jakarta</small></div><span class="deal-route__line"><svg class="icon icon--plane-right"><use href="#i-plane"/></svg></span><div class="text-right"><strong>NRT</strong><small>Tokyo</small></div></div>
+            <ul class="deal-meta"><li><svg class="icon"><use href="#i-clock"/></svg> 7h 25m · Direct</li><li><svg class="icon"><use href="#i-calendar"/></svg> Mar 10 – Mar 24</li></ul>
+            <div class="deal-card__foot"><p><s>$620</s> <strong>$420</strong></p><button class="btn btn--primary btn--sm" data-book="Jakarta (CGK)|Tokyo (NRT)">Book</button></div>
+          </article>
+          <article class="deal-card" data-region="europe">
+            <div class="deal-card__top"><span class="airline" style="--h:215">AF</span><span class="discount">-25%</span></div>
+            <div class="deal-route"><div><strong>JFK</strong><small>New York</small></div><span class="deal-route__line"><svg class="icon icon--plane-right"><use href="#i-plane"/></svg></span><div class="text-right"><strong>CDG</strong><small>Paris</small></div></div>
+            <ul class="deal-meta"><li><svg class="icon"><use href="#i-clock"/></svg> 7h 10m · Direct</li><li><svg class="icon"><use href="#i-calendar"/></svg> Apr 02 – Apr 12</li></ul>
+            <div class="deal-card__foot"><p><s>$810</s> <strong>$610</strong></p><button class="btn btn--primary btn--sm" data-book="New York (JFK)|Paris (CDG)">Book</button></div>
+          </article>
+          <article class="deal-card" data-region="middle-east">
+            <div class="deal-card__top"><span class="airline" style="--h:5">EK</span><span class="discount">-40%</span></div>
+            <div class="deal-route"><div><strong>LHR</strong><small>London</small></div><span class="deal-route__line"><svg class="icon icon--plane-right"><use href="#i-plane"/></svg></span><div class="text-right"><strong>DXB</strong><small>Dubai</small></div></div>
+            <ul class="deal-meta"><li><svg class="icon"><use href="#i-clock"/></svg> 6h 55m · Direct</li><li><svg class="icon"><use href="#i-calendar"/></svg> Feb 18 – Feb 26</li></ul>
+            <div class="deal-card__foot"><p><s>$650</s> <strong>$390</strong></p><button class="btn btn--primary btn--sm" data-book="London (LHR)|Dubai (DXB)">Book</button></div>
+          </article>
+          <article class="deal-card" data-region="europe">
+            <div class="deal-card__top"><span class="airline" style="--h:195">KL</span><span class="discount">-18%</span></div>
+            <div class="deal-route"><div><strong>LOS</strong><small>Lagos</small></div><span class="deal-route__line"><svg class="icon icon--plane-right"><use href="#i-plane"/></svg></span><div class="text-right"><strong>AMS</strong><small>Amsterdam</small></div></div>
+            <ul class="deal-meta"><li><svg class="icon"><use href="#i-clock"/></svg> 6h 40m · Direct</li><li><svg class="icon"><use href="#i-calendar"/></svg> May 05 – May 19</li></ul>
+            <div class="deal-card__foot"><p><s>$710</s> <strong>$580</strong></p><button class="btn btn--primary btn--sm" data-book="Lagos (LOS)|Amsterdam (AMS)">Book</button></div>
+          </article>
+          <article class="deal-card" data-region="asia">
+            <div class="deal-card__top"><span class="airline" style="--h:160">GA</span><span class="discount">-45%</span></div>
+            <div class="deal-route"><div><strong>SIN</strong><small>Singapore</small></div><span class="deal-route__line"><svg class="icon icon--plane-right"><use href="#i-plane"/></svg></span><div class="text-right"><strong>DPS</strong><small>Bali</small></div></div>
+            <ul class="deal-meta"><li><svg class="icon"><use href="#i-clock"/></svg> 2h 35m · Direct</li><li><svg class="icon"><use href="#i-calendar"/></svg> Mar 22 – Mar 29</li></ul>
+            <div class="deal-card__foot"><p><s>$330</s> <strong>$180</strong></p><button class="btn btn--primary btn--sm" data-book="Singapore (SIN)|Bali (DPS)">Book</button></div>
+          </article>
+          <article class="deal-card" data-region="middle-east">
+            <div class="deal-card__top"><span class="airline" style="--h:300">QR</span><span class="discount">-22%</span></div>
+            <div class="deal-route"><div><strong>PVG</strong><small>Shanghai</small></div><span class="deal-route__line"><svg class="icon icon--plane-right"><use href="#i-plane"/></svg></span><div class="text-right"><strong>DOH</strong><small>Doha</small></div></div>
+            <ul class="deal-meta"><li><svg class="icon"><use href="#i-clock"/></svg> 10h 05m · Direct</li><li><svg class="icon"><use href="#i-calendar"/></svg> Jun 01 – Jun 15</li></ul>
+            <div class="deal-card__foot"><p><s>$890</s> <strong>$695</strong></p><button class="btn btn--primary btn--sm" data-book="Shanghai (PVG)|Doha (DOH)">Book</button></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         HOTELS & PACKAGES (tabs)
+         ================================================================= -->
+    <section class="section stays" id="hotels" aria-labelledby="staysTitle">
+      <span id="packages" class="anchor" aria-hidden="true"></span>
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="eyebrow reveal">Stay &amp; Save</p>
+          <h2 class="section-title reveal" id="staysTitle">Hotels &amp; <span class="text-accent">Packages</span></h2>
+          <p class="section-text reveal">Bundle your flight with a handpicked stay and save up to 30% on your next trip.</p>
+          <div class="segmented segmented--center reveal" role="tablist" aria-label="Stays" id="stayTabs">
+            <button role="tab" class="segmented__btn is-active" aria-selected="true" data-stay="hotels">Hotels</button>
+            <button role="tab" class="segmented__btn" aria-selected="false" data-stay="packages">Packages</button>
+          </div>
+        </div>
+
+        <!-- Hotels panel -->
+        <div class="stay-grid" data-stay-panel="hotels" role="tabpanel">
+          <article class="stay-card">
+            <div class="stay-card__media"><img src="assets/images/tokyo.jpg" alt="Tokyo city view" loading="lazy" /><button class="fav-btn" aria-label="Save to favorites" aria-pressed="false"><svg class="icon"><use href="#i-heart"/></svg></button></div>
+            <div class="stay-card__body">
+              <div class="stay-card__row"><h3>Shinjuku Sky Hotel</h3><span class="rating"><svg class="icon"><use href="#i-star"/></svg> 4.8</span></div>
+              <p class="stay-card__loc"><svg class="icon"><use href="#i-pin"/></svg> Shinjuku, Tokyo</p>
+              <div class="stay-card__row"><p class="stay-price"><strong>$145</strong> / night</p><button class="btn btn--outline btn--sm" data-reserve="Shinjuku Sky Hotel">Reserve</button></div>
+            </div>
+          </article>
+          <article class="stay-card">
+            <div class="stay-card__media"><img src="assets/images/paris.jpg" alt="Paris at sunset" loading="lazy" /><button class="fav-btn" aria-label="Save to favorites" aria-pressed="false"><svg class="icon"><use href="#i-heart"/></svg></button></div>
+            <div class="stay-card__body">
+              <div class="stay-card__row"><h3>Maison Seine</h3><span class="rating"><svg class="icon"><use href="#i-star"/></svg> 4.9</span></div>
+              <p class="stay-card__loc"><svg class="icon"><use href="#i-pin"/></svg> 7th Arr., Paris</p>
+              <div class="stay-card__row"><p class="stay-price"><strong>$210</strong> / night</p><button class="btn btn--outline btn--sm" data-reserve="Maison Seine">Reserve</button></div>
+            </div>
+          </article>
+          <article class="stay-card">
+            <div class="stay-card__media"><img src="assets/images/dubai.jpg" alt="Dubai coastline" loading="lazy" /><button class="fav-btn" aria-label="Save to favorites" aria-pressed="false"><svg class="icon"><use href="#i-heart"/></svg></button></div>
+            <div class="stay-card__body">
+              <div class="stay-card__row"><h3>Azure Marina Resort</h3><span class="rating"><svg class="icon"><use href="#i-star"/></svg> 4.7</span></div>
+              <p class="stay-card__loc"><svg class="icon"><use href="#i-pin"/></svg> Jumeirah, Dubai</p>
+              <div class="stay-card__row"><p class="stay-price"><strong>$260</strong> / night</p><button class="btn btn--outline btn--sm" data-reserve="Azure Marina Resort">Reserve</button></div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Packages panel -->
+        <div class="stay-grid" data-stay-panel="packages" role="tabpanel" hidden>
+          <article class="stay-card">
+            <div class="stay-card__media"><img src="assets/images/bali.jpg" alt="Bali temple on a lake" loading="lazy" /><span class="price-chip price-chip--left">7 nights</span><button class="fav-btn" aria-label="Save to favorites" aria-pressed="false"><svg class="icon"><use href="#i-heart"/></svg></button></div>
+            <div class="stay-card__body">
+              <div class="stay-card__row"><h3>Bali Island Escape</h3><span class="rating"><svg class="icon"><use href="#i-star"/></svg> 4.9</span></div>
+              <p class="stay-card__loc"><svg class="icon"><use href="#i-plane"/></svg> Flight + villa + transfers</p>
+              <div class="stay-card__row"><p class="stay-price"><strong>$899</strong> / person</p><button class="btn btn--outline btn--sm" data-reserve="Bali Island Escape">Reserve</button></div>
+            </div>
+          </article>
+          <article class="stay-card">
+            <div class="stay-card__media"><img src="assets/images/amsterdam.jpg" alt="Amsterdam canals" loading="lazy" /><span class="price-chip price-chip--left">5 nights</span><button class="fav-btn" aria-label="Save to favorites" aria-pressed="false"><svg class="icon"><use href="#i-heart"/></svg></button></div>
+            <div class="stay-card__body">
+              <div class="stay-card__row"><h3>Amsterdam City Break</h3><span class="rating"><svg class="icon"><use href="#i-star"/></svg> 4.6</span></div>
+              <p class="stay-card__loc"><svg class="icon"><use href="#i-plane"/></svg> Flight + boutique hotel</p>
+              <div class="stay-card__row"><p class="stay-price"><strong>$1,149</strong> / person</p><button class="btn btn--outline btn--sm" data-reserve="Amsterdam City Break">Reserve</button></div>
+            </div>
+          </article>
+          <article class="stay-card">
+            <div class="stay-card__media"><img src="assets/images/tokyo.jpg" alt="Tokyo skyline" loading="lazy" /><span class="price-chip price-chip--left">10 nights</span><button class="fav-btn" aria-label="Save to favorites" aria-pressed="false"><svg class="icon"><use href="#i-heart"/></svg></button></div>
+            <div class="stay-card__body">
+              <div class="stay-card__row"><h3>Japan Discovery Tour</h3><span class="rating"><svg class="icon"><use href="#i-star"/></svg> 4.8</span></div>
+              <p class="stay-card__loc"><svg class="icon"><use href="#i-plane"/></svg> Flight + rail pass + hotels</p>
+              <div class="stay-card__row"><p class="stay-price"><strong>$2,390</strong> / person</p><button class="btn btn--outline btn--sm" data-reserve="Japan Discovery Tour">Reserve</button></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         ABOUT — stats, features & testimonials
+         ================================================================= -->
+    <section class="section about" id="about" aria-labelledby="aboutTitle">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="eyebrow reveal">Why Aerolight</p>
+          <h2 class="section-title reveal" id="aboutTitle">Trusted by <span class="text-accent">Travelers</span> Everywhere</h2>
+          <p class="section-text reveal">We compare hundreds of airlines in real time so you always fly smarter, for less.</p>
+        </div>
+
+        <ul class="stats">
+          <li class="stat reveal"><strong data-count="2" data-suffix="M+">0</strong><span>Happy travelers</span></li>
+          <li class="stat reveal"><strong data-count="500" data-suffix="+">0</strong><span>Partner airlines</span></li>
+          <li class="stat reveal"><strong data-count="190" data-suffix="">0</strong><span>Countries covered</span></li>
+          <li class="stat reveal"><strong data-count="4.9" data-decimals="1" data-suffix="/5">0</strong><span>Average rating</span></li>
+        </ul>
+
+        <div class="features">
+          <article class="feature reveal">
+            <span class="feature__icon"><svg class="icon"><use href="#i-tag"/></svg></span>
+            <h3>Best Price Guarantee</h3>
+            <p>Found it cheaper elsewhere? We'll refund the difference, no questions asked.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon"><svg class="icon"><use href="#i-shield"/></svg></span>
+            <h3>Secure Booking</h3>
+            <p>Bank-level encryption protects every payment and every passport detail.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon"><svg class="icon"><use href="#i-headset"/></svg></span>
+            <h3>24/7 Support</h3>
+            <p>Real humans ready to help with changes, delays and cancellations — any time.</p>
+          </article>
+        </div>
+
+        <!-- Testimonials slider -->
+        <div class="testimonials reveal" id="testimonials">
+          <div class="testimonials__track" id="testimonialTrack">
+            <figure class="testimonial">
+              <div class="stars" aria-label="5 out of 5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div>
+              <blockquote>“Booked Lagos to New York in under two minutes. The price calendar saved me almost $200 compared to other sites.”</blockquote>
+              <figcaption><span class="avatar" style="--h:20">AO</span><span><strong>Adaeze Okafor</strong><small>Lagos, Nigeria</small></span></figcaption>
+            </figure>
+            <figure class="testimonial">
+              <div class="stars" aria-label="5 out of 5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div>
+              <blockquote>“The seat map is brilliant, and live boarding updates meant I never had to stare at the departure board.”</blockquote>
+              <figcaption><span class="avatar" style="--h:210">KT</span><span><strong>Kenji Tanaka</strong><small>Tokyo, Japan</small></span></figcaption>
+            </figure>
+            <figure class="testimonial">
+              <div class="stars" aria-label="5 out of 5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div>
+              <blockquote>“Our Bali package was flawless — flights, villa and transfers all in one booking. We're already planning the next one.”</blockquote>
+              <figcaption><span class="avatar" style="--h:150">SL</span><span><strong>Sophie Laurent</strong><small>Paris, France</small></span></figcaption>
+            </figure>
+          </div>
+          <div class="testimonials__controls">
+            <button class="icon-btn" id="prevSlide" aria-label="Previous testimonial"><svg class="icon"><use href="#i-chevron-left"/></svg></button>
+            <div class="dots" id="sliderDots"></div>
+            <button class="icon-btn" id="nextSlide" aria-label="Next testimonial"><svg class="icon"><use href="#i-chevron-right"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         FAQ (accordion)
+         ================================================================= -->
+    <section class="section faq" id="faq" aria-labelledby="faqTitle">
+      <div class="container container--narrow">
+        <div class="section-head section-head--center">
+          <p class="eyebrow reveal">Questions</p>
+          <h2 class="section-title reveal" id="faqTitle">Frequently <span class="text-accent">Asked</span></h2>
+        </div>
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion__item reveal">
+            <button class="accordion__trigger" aria-expanded="false">How do I know I'm getting the best fare?<svg class="icon"><use href="#i-plus"/></svg></button>
+            <div class="accordion__panel"><div><p>We scan 500+ airlines and agencies in real time. If you find a lower price within 24 hours of booking, our Best Price Guarantee refunds the difference.</p></div></div>
+          </div>
+          <div class="accordion__item reveal">
+            <button class="accordion__trigger" aria-expanded="false">Can I change or cancel my booking?<svg class="icon"><use href="#i-plus"/></svg></button>
+            <div class="accordion__panel"><div><p>Yes. Manage your trip from your account at any time. Change and cancellation rules depend on the fare you choose and are always shown before you pay.</p></div></div>
+          </div>
+          <div class="accordion__item reveal">
+            <button class="accordion__trigger" aria-expanded="false">Do you charge booking fees?<svg class="icon"><use href="#i-plus"/></svg></button>
+            <div class="accordion__panel"><div><p>No hidden fees. The price you see on the results page is the total price, including taxes and carrier charges.</p></div></div>
+          </div>
+          <div class="accordion__item reveal">
+            <button class="accordion__trigger" aria-expanded="false">How will I receive my e-ticket?<svg class="icon"><use href="#i-plus"/></svg></button>
+            <div class="accordion__panel"><div><p>Your e-ticket arrives by email within minutes and is always available in the Aerolight app and on the web.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         NEWSLETTER CTA
+         ================================================================= -->
+    <section class="section cta" aria-labelledby="ctaTitle">
+      <div class="container">
+        <div class="cta__box reveal">
+          <div class="cta__glow" aria-hidden="true"></div>
+          <h2 class="section-title" id="ctaTitle">Never Miss a <span class="text-accent">Deal</span></h2>
+          <p class="section-text">Get fare drops and exclusive offers straight to your inbox. No spam, ever.</p>
+          <form class="newsletter" id="newsletterForm" novalidate>
+            <label for="newsletterEmail" class="sr-only">Email address</label>
+            <svg class="icon newsletter__icon"><use href="#i-mail"/></svg>
+            <input id="newsletterEmail" type="email" placeholder="Enter your email" required />
+            <button type="submit" class="btn btn--primary">Subscribe</button>
+          </form>
+          <p class="form-msg" id="newsletterMsg" role="status"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================
+       FOOTER
+       =================================================================== -->
+<!-- ===================================================================
+       DIALOGS
+       =================================================================== -->
+
+  <!-- Login / Sign up -->
+  <dialog class="modal" id="authModal" aria-labelledby="authTitle">
+    <div class="modal__box modal__box--sm">
+      <button class="modal__close" data-close aria-label="Close"><svg class="icon"><use href="#i-x"/></svg></button>
+      <a class="logo logo--center"><svg class="logo__mark"><use href="#i-logo"/></svg><span>Aerolight</span></a>
+      <h2 class="modal__title" id="authTitle">Welcome back</h2>
+      <div class="segmented segmented--full" role="tablist" id="authTabs">
+        <button type="button" role="tab" class="segmented__btn is-active" aria-selected="true" data-auth="login">Login</button>
+        <button type="button" role="tab" class="segmented__btn" aria-selected="false" data-auth="signup">Sign Up</button>
+      </div>
+      <form class="auth-form" id="authForm" novalidate>
+        <div class="field field--labeled" id="nameField" hidden>
+          <label for="authName">Full name</label>
+          <input id="authName" type="text" placeholder="Jane Traveler" autocomplete="name" />
+        </div>
+        <div class="field field--labeled">
+          <label for="authEmail">Email</label>
+          <input id="authEmail" type="email" placeholder="you@example.com" autocomplete="email" />
+        </div>
+        <div class="field field--labeled field--password">
+          <label for="authPassword">Password</label>
+          <input id="authPassword" type="password" placeholder="At least 6 characters" autocomplete="current-password" />
+          <button type="button" class="pw-toggle" id="pwToggle" aria-label="Show password"><svg class="icon"><use href="#i-eye"/></svg></button>
+        </div>
+        <p class="form-msg" id="authMsg" role="status"></p>
+        <button type="submit" class="btn btn--primary btn--block" id="authSubmit">Login</button>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Search results -->
+  <dialog class="modal" id="resultsModal" aria-labelledby="resultsTitle">
+    <div class="modal__box">
+      <button class="modal__close" data-close aria-label="Close"><svg class="icon"><use href="#i-x"/></svg></button>
+      <p class="eyebrow">Search results</p>
+      <h2 class="modal__title" id="resultsTitle">Flights</h2>
+      <p class="modal__sub" id="resultsSub"></p>
+      <div class="tabs tabs--sm" role="tablist" id="sortTabs">
+        <button role="tab" class="tabs__btn is-active" aria-selected="true" data-sort="best">Best</button>
+        <button role="tab" class="tabs__btn" aria-selected="false" data-sort="cheapest">Cheapest</button>
+        <button role="tab" class="tabs__btn" aria-selected="false" data-sort="fastest">Fastest</button>
+      </div>
+      <ul class="results" id="resultsList"></ul>
+    </div>
+  </dialog>
+
+  <!-- All destinations -->
+  <dialog class="modal" id="destModal" aria-labelledby="destModalTitle">
+    <div class="modal__box">
+      <button class="modal__close" data-close aria-label="Close"><svg class="icon"><use href="#i-x"/></svg></button>
+      <p class="eyebrow">Explore</p>
+      <h2 class="modal__title" id="destModalTitle">All Destinations</h2>
+      <div class="field field--search">
+        <svg class="icon"><use href="#i-search"/></svg>
+        <label for="destSearch" class="sr-only">Search destinations</label>
+        <input id="destSearch" type="search" placeholder="Search city or country" />
+      </div>
+      <ul class="dest-list" id="destList"></ul>
+    </div>
+  </dialog>
+
+  <!-- Toast notifications & back-to-top -->
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+  <button class="to-top" id="toTop" aria-label="Back to top"><svg class="icon"><use href="#i-arrow-up"/></svg></button>
+
+  <!-- this is footer -->
+<footer>
+  <footer class="sw-footer">
+  <div class="sw-footer-glow" aria-hidden="true"></div>
+  <div class="sw-footer-inner">
+    <div class="sw-footer-grid">
+      <section class="sw-footer-brand">
+        <a class="sw-brand" href="./index.html" aria-label="SkyWay home">
+          <span class="sw-brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none"><path d="M5 22.2 34.8 7.5 23.1 35l-4.2-10.8L5 22.2Z" fill="currentColor" opacity=".96"/><path d="m18.9 24.2 7.6-7.1" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </span>
+          <span class="sw-brand-name">Sky<span>Way</span></span>
+        </a>
+        <p class="sw-footer-description">The world is closer than you think. Discover destinations, explore possibilities and travel with SkyWay.</p>
+        <div class="sw-socials" aria-label="Social media">
+          <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+          <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h3l.5-4H14V7c0-1.2.4-2 2-2h2V1.4C17.3 1.2 16.2 1 15 1c-3.1 0-5 1.9-5 5.4V9H7v4h3v8"/></svg></a>
+          <a href="https://x.com/" aria-label="X" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 3 16 18M20 3 4 21M4 3h4l12 18h-4L4 3Z"/></svg></a>
+          <a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v11M4 4.5v.1M9 20v-6.2c0-2.1 1.2-3.3 3-3.3s3 1.2 3 3.3V20m0-6.2c0-2.1 1.2-3.3 3-3.3s3 1.2 3 3.3V20M9 9v11"/></svg></a>
+        </div>
+      </section>
+
+      <nav class="sw-footer-links" aria-label="Explore">
+        <h2>Explore</h2>
+        <a href="./flights.html">Find Flights</a>
+        <a href="./hotels.html">Hotels</a>
+        <a href="./packages.html">Travel Packages</a>
+        <a href="./deals.html">Special Deals</a>
+        <a href="./destinations.html">Popular Destinations</a>
+      </nav>
+
+      <nav class="sw-footer-links" aria-label="Company">
+        <h2>Company</h2>
+        <a href="./about.html">About Us</a>
+        <a href="./contact.html">Contact Us</a>
+        <a href="./faqs.html">FAQs</a>
+        <a href="./help.html">Help Center</a>
+        <a href="./careers.html">Careers</a>
+      </nav>
+
+      <section class="sw-newsletter">
+        <h2>Stay Inspired, Travel More</h2>
+        <p>Subscribe to receive travel inspiration, exclusive offers and the latest updates.</p>
+        <form class="sw-newsletter-form" data-sw-newsletter novalidate>
+          <label class="sw-sr-only" for="sw-newsletter-email">Email address</label>
+          <div class="sw-newsletter-control">
+            <input id="sw-newsletter-email" name="email" type="email" autocomplete="email" placeholder="Your email address" required aria-describedby="sw-newsletter-message">
+            <button type="submit" aria-label="Subscribe to newsletter">
+              <span>Subscribe</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5"/></svg>
+            </button>
+          </div>
+          <p class="sw-form-message" id="sw-newsletter-message" data-sw-newsletter-message role="status" aria-live="polite"></p>
+        </form>
+        <p class="sw-newsletter-note">By subscribing, you agree to receive occasional emails from SkyWay.</p>
+      </section>
+    </div>
+
+    <div class="sw-footer-bottom">
+      <p>© <span data-sw-year></span> SkyWay. All rights reserved.</p>
+      <nav aria-label="Legal">
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="./terms.html">Terms &amp; Conditions</a>
+        <a href="./cookies.html">Cookie Policy</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+</footer>
+
+
+  <!-- ===================================================================
+       SCRIPTS
+       External CDN: Three.js r149 (classic build, used ONLY for the 3D Earth)
+       =================================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js" defer></script>
+  <script src="assets/images/earth-textures.js" defer></script>
+  <script src="earth.js" defer></script>
+  <script src="home.js" defer></script>
+</body>
+</html>
