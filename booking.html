@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050c18">
+  <title>SkyTrack — Flight Management</title>
+  <meta name="description" content="SkyTrack flight management dashboard with a live animated globe, flight routes, bookings and digital boarding passes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+
+    <!-- this is navbar -->
+
+    <header class="sw-header" data-sw-header>
+  <div class="sw-nav-shell">
+    <a class="sw-brand" href="./index.html" aria-label="SkyWay home">
+      <span class="sw-brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none">
+          <path d="M5 22.2 34.8 7.5 23.1 35l-4.2-10.8L5 22.2Z" fill="currentColor" opacity=".96"/>
+          <path d="m18.9 24.2 7.6-7.1" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="sw-brand-name">Sky<span>Way</span></span>
+    </a>
+
+    <nav class="sw-primary-nav" aria-label="Main navigation">
+      <a href="./index.html">Home</a>
+      <a href="./booking.html">Booking</a>
+      <!-- <a href="./hotels.html">Hotels</a> -->
+      <!-- <a href="./packages.html">Packages</a> -->
+      <a href="./contact.html">Contact</a>
+      <a href="./about.html">About Us</a>
+    </nav>
+
+    <div class="sw-nav-actions">
+      <button class="sw-theme-toggle" type="button" data-sw-theme-toggle aria-label="Switch to light theme" title="Toggle theme">
+        <svg class="sw-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.4A8.7 8.7 0 0 1 8.6 3.8 8.8 8.8 0 1 0 20.2 15.4Z"/></svg>
+        <svg class="sw-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+      </button>
+      <a class="sw-button sw-button-quiet" href="./login.html">Log in</a>
+      <a class="sw-button sw-button-primary" href="./signup.html">Sign up</a>
+    </div>
+
+    <button class="sw-menu-toggle" type="button" data-sw-menu-toggle aria-expanded="false" aria-controls="sw-mobile-menu" aria-label="Open navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="sw-mobile-nav" id="sw-mobile-menu" data-sw-mobile-menu aria-label="Mobile navigation" hidden>
+    <a href="./index.html">Home</a>
+    <a href="./flights.html">Flights</a>
+    <a href="./hotels.html">Hotels</a>
+    <a href="./packages.html">Packages</a>
+    <a href="./deals.html">Deals</a>
+    <a href="./about.html">About Us</a>
+    <div class="sw-mobile-actions">
+      <a class="sw-button sw-button-quiet" href="./login.html">Log in</a>
+      <a class="sw-button sw-button-primary" href="./signup.html">Sign up</a>
+    </div>
+  </nav>
+</header>
+
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="ambient ambient-three" aria-hidden="true"></div>
+
+  <main class="dashboard">
+    <h1 class="sr-only">SkyTrack Flight Management</h1>
+
+    <section class="overview">
+      <article class="stats glass reveal" style="--d:1">
+        <p class="eyebrow">YOUR FLIGHT OVERVIEW</p>
+        <h2>Statistics</h2>
+
+        <div class="stat-row">
+          <div class="stat-block"><span>Departure</span><strong id="departureTime">20:35</strong><em>DXB · Dubai</em></div>
+          <div class="stat-block"><span>Expected Arrival</span><strong id="arrivalTime">05:35 <small>+1</small></strong><em>SYD · Sydney</em></div>
+        </div>
+
+        <div class="progress-card">
+          <div class="progress-head"><span>Flight progress</span><b id="progressValue">0%</b></div>
+          <div class="progress-track"><div class="progress-fill" id="progressFill"></div><span class="progress-plane" id="progressPlane">✈</span></div>
+          <div class="progress-foot"><span>DXB</span><span>SYD</span></div>
+        </div>
+
+        <div class="route-coordinates">
+          <div><small>LAT</small><span id="latValue">8.8243123</span></div>
+          <div><small>LONG</small><span id="longValue">92.3242321</span></div>
+        </div>
+        <div class="live-status"><i></i> Live flight tracking · <b id="activeFlights">5</b> aircraft</div>
+      </article>
+
+      <article class="globe-area glass reveal" style="--d:2" id="globeArea">
+        <div class="globe-halo" aria-hidden="true"></div>
+        <div class="globe-status">
+          <span class="chip live-chip"><i></i> Live</span>
+          <span class="chip clock-chip"><small>UTC</small> <b id="utcClock">--:--:--</b></span>
+        </div>
+        <canvas id="earthCanvas" aria-label="Animated globe with aircraft flying along yellow dotted routes"></canvas>
+        <div class="map-tag tag-start" id="tagStart"><span class="tag-dot"></span> DXB <small>Dubai</small></div>
+        <div class="map-tag tag-end" id="tagEnd"><span class="tag-dot"></span> SYD <small>Sydney</small></div>
+        <div class="map-tag tag-mid" id="tagMid"><span class="tag-pulse"></span> SK 290 <small>In flight</small></div>
+        <div class="globe-legend"><span><i class="dash"></i> Active routes</span><span><i class="plane-ico">✈</i> Aircraft</span></div>
+        <div class="map-controls">
+          <span>Zoom</span>
+          <button id="zoomOut" aria-label="Zoom out">−</button>
+          <button id="zoomIn" aria-label="Zoom in">+</button>
+          <button id="resetGlobe" aria-label="Reset view">⛶</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="orders-section glass reveal" style="--d:3">
+      <div class="section-heading">
+        <div><p class="eyebrow">FLIGHT ACTIVITY</p><h2>Order List <span class="count" id="orderCount">03</span></h2></div>
+        <div class="table-tools">
+          <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search flight, route..."></label>
+          <div class="select-wrap">
+            <select id="statusFilter" aria-label="Filter by payment"><option value="all">All status</option><option value="Successful">Successful</option><option value="Failed">Failed</option></select>
+          </div>
+          <button class="floating-book" id="openBooking"><span>＋</span> Book a flight</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Order ID</th><th>Route</th><th>Departure</th><th>Expected Arrival</th><th>Payment</th><th></th></tr></thead>
+          <tbody id="orderRows">
+            <tr data-status="Successful"><td>#29014</td><td><b>DXB</b><span class="route-arrow">→</span><b>SYD</b></td><td>20:35</td><td>05:35</td><td><span class="payment success">● Successful</span></td><td><button class="view-ticket" data-order="29014">View ticket</button></td></tr>
+            <tr data-status="Failed"><td>#32623</td><td><b>IST</b><span class="route-arrow">→</span><b>KHI</b></td><td>18:20</td><td>20:35</td><td><span class="payment failed">● Failed</span></td><td><button class="view-ticket" data-order="32623">View ticket</button></td></tr>
+            <tr data-status="Successful"><td>#41023</td><td><b>LHR</b><span class="route-arrow">→</span><b>JFK</b></td><td>12:45</td><td>15:45</td><td><span class="payment success">● Successful</span></td><td><button class="view-ticket" data-order="41023">View ticket</button></td></tr>
+          </tbody>
+        </table>
+        <div class="empty-state" id="emptyState" hidden>No matching flights found.</div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="bookingModal" aria-hidden="true">
+    <section class="modal booking-modal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+      <button class="modal-close" data-close aria-label="Close">×</button>
+      <div class="modal-kicker">YOUR NEXT JOURNEY</div><h2 id="bookingTitle">Book your flight</h2>
+      <p class="modal-subtitle">Choose your route and travel in comfort.</p>
+      <form id="bookingForm">
+        <div class="form-grid">
+          <label>From <select id="fromCity"><option value="Dubai (DXB)">Dubai (DXB)</option><option value="London (LHR)">London (LHR)</option><option value="Istanbul (IST)">Istanbul (IST)</option><option value="Amsterdam (AMS)">Amsterdam (AMS)</option><option value="New York (JFK)">New York (JFK)</option></select></label>
+          <label>To <select id="toCity"><option value="Sydney (SYD)">Sydney (SYD)</option><option value="New York (JFK)">New York (JFK)</option><option value="Dubai (DXB)">Dubai (DXB)</option><option value="Tokyo (HND)">Tokyo (HND)</option><option value="London (LHR)">London (LHR)</option></select></label>
+          <label>Departure date <input id="travelDate" type="date" required></label>
+          <label>Passengers <select id="passengers"><option>1 Passenger</option><option>2 Passengers</option><option>3 Passengers</option><option>4 Passengers</option></select></label>
+        </div>
+        <div class="class-label">Choose your travel class</div>
+        <div class="class-options">
+          <label class="class-card"><input type="radio" name="travelClass" value="Economy" checked><span class="class-icon">✈</span><b>Economy</b><small>From $480</small></label>
+          <label class="class-card"><input type="radio" name="travelClass" value="Business"><span class="class-icon">✧</span><b>Business</b><small>From $1,250</small></label>
+          <label class="class-card"><input type="radio" name="travelClass" value="First Class"><span class="class-icon">♛</span><b>First Class</b><small>From $2,890</small></label>
+          <label class="class-card vip-card"><input type="radio" name="travelClass" value="VIP"><span class="class-icon">♕</span><b>VIP</b><small>From $4,500</small></label>
+        </div>
+        <div class="price-preview"><div><span>Estimated total</span><strong id="pricePreview">$480.00</strong></div><small>Taxes and airport fees included</small></div>
+        <button class="primary-button" type="submit">Continue to booking <span>→</span></button>
+      </form>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="ticketModal" aria-hidden="true">
+    <section class="modal ticket-modal" role="dialog" aria-modal="true" aria-labelledby="ticketTitle">
+      <button class="modal-close" data-close aria-label="Close">×</button>
+      <div class="ticket-top"><div class="ticket-brand">✦ SKYTRACK</div><span class="ticket-status">CONFIRMED</span></div>
+      <p class="modal-kicker">YOUR DIGITAL BOARDING PASS</p><h2 id="ticketTitle">Your ticket is ready!</h2>
+      <div class="ticket-class" id="ticketClass">BUSINESS CLASS</div>
+      <div class="ticket-route"><div><small>FROM</small><strong id="ticketFrom">DXB</strong><span id="ticketFromName">Dubai</span></div><div class="plane-between">✈<i></i></div><div><small>TO</small><strong id="ticketTo">SYD</strong><span id="ticketToName">Sydney</span></div></div>
+      <div class="ticket-details"><div><small>DEPARTURE</small><b id="ticketDeparture">20:35</b></div><div><small>ARRIVAL</small><b id="ticketArrival">05:35 +1</b></div><div><small>DATE</small><b id="ticketDate">—</b></div><div><small>PASSENGERS</small><b id="ticketPassengers">1</b></div><div><small>GATE</small><b id="ticketGate">A12</b></div><div><small>TOTAL PAID</small><b id="ticketPrice">$1,250</b></div></div>
+      <div class="barcode" aria-hidden="true"></div>
+      <button class="primary-button board-button" id="boardFlight">✈ Board flight & watch takeoff</button>
+    </section>
+  </div>
+
+  <div class="takeoff-toast" id="takeoffToast"><span class="toast-plane">✈</span><div><b>Boarding complete!</b><small>Your aircraft is taking off around the globe.</small></div><button id="dismissToast" aria-label="Dismiss">×</button></div>
+
+
+
+<!-- this is footer -->
+<footer>
+  <footer class="sw-footer">
+  <div class="sw-footer-glow" aria-hidden="true"></div>
+  <div class="sw-footer-inner">
+    <div class="sw-footer-grid">
+      <section class="sw-footer-brand">
+        <a class="sw-brand" href="./index.html" aria-label="SkyWay home">
+          <span class="sw-brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none"><path d="M5 22.2 34.8 7.5 23.1 35l-4.2-10.8L5 22.2Z" fill="currentColor" opacity=".96"/><path d="m18.9 24.2 7.6-7.1" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </span>
+          <span class="sw-brand-name">Sky<span>Way</span></span>
+        </a>
+        <p class="sw-footer-description">The world is closer than you think. Discover destinations, explore possibilities and travel with SkyWay.</p>
+        <div class="sw-socials" aria-label="Social media">
+          <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+          <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h3l.5-4H14V7c0-1.2.4-2 2-2h2V1.4C17.3 1.2 16.2 1 15 1c-3.1 0-5 1.9-5 5.4V9H7v4h3v8"/></svg></a>
+          <a href="https://x.com/" aria-label="X" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 3 16 18M20 3 4 21M4 3h4l12 18h-4L4 3Z"/></svg></a>
+          <a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v11M4 4.5v.1M9 20v-6.2c0-2.1 1.2-3.3 3-3.3s3 1.2 3 3.3V20m0-6.2c0-2.1 1.2-3.3 3-3.3s3 1.2 3 3.3V20M9 9v11"/></svg></a>
+        </div>
+      </section>
+
+      <nav class="sw-footer-links" aria-label="Explore">
+        <h2>Explore</h2>
+        <a href="./flights.html">Find Flights</a>
+        <a href="./hotels.html">Hotels</a>
+        <a href="./packages.html">Travel Packages</a>
+        <a href="./deals.html">Special Deals</a>
+        <a href="./destinations.html">Popular Destinations</a>
+      </nav>
+
+      <nav class="sw-footer-links" aria-label="Company">
+        <h2>Company</h2>
+        <a href="./about.html">About Us</a>
+        <a href="./contact.html">Contact Us</a>
+        <a href="./faqs.html">FAQs</a>
+        <a href="./help.html">Help Center</a>
+        <a href="./careers.html">Careers</a>
+      </nav>
+
+      <section class="sw-newsletter">
+        <h2>Stay Inspired, Travel More</h2>
+        <p>Subscribe to receive travel inspiration, exclusive offers and the latest updates.</p>
+        <form class="sw-newsletter-form" data-sw-newsletter novalidate>
+          <label class="sw-sr-only" for="sw-newsletter-email">Email address</label>
+          <div class="sw-newsletter-control">
+            <input id="sw-newsletter-email" name="email" type="email" autocomplete="email" placeholder="Your email address" required aria-describedby="sw-newsletter-message">
+            <button type="submit" aria-label="Subscribe to newsletter">
+              <span>Subscribe</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5"/></svg>
+            </button>
+          </div>
+          <p class="sw-form-message" id="sw-newsletter-message" data-sw-newsletter-message role="status" aria-live="polite"></p>
+        </form>
+        <p class="sw-newsletter-note">By subscribing, you agree to receive occasional emails from SkyWay.</p>
+      </section>
+    </div>
+
+    <div class="sw-footer-bottom">
+      <p>© <span data-sw-year></span> SkyWay. All rights reserved.</p>
+      <nav aria-label="Legal">
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="./terms.html">Terms &amp; Conditions</a>
+        <a href="./cookies.html">Cookie Policy</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+</footer>
+  <script src="booking.js"></script>
+</body>
+</html>
