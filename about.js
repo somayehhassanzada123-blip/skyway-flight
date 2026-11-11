@@ -317,3 +317,37 @@ console.log("All SkyWay destinations loaded!");
     }
   });
 })();
+
+
+// Responsive mobile navigation
+(() => {
+  const header = document.querySelector('[data-sw-header]');
+  if (!header || header.dataset.menuReady === 'true') return;
+  header.dataset.menuReady = 'true';
+  const menuButton = header.querySelector('[data-sw-menu-toggle]');
+  const mobileMenu = header.querySelector('[data-sw-mobile-menu]');
+  if (!menuButton || !mobileMenu) return;
+  const mobileBreakpoint = window.matchMedia('(max-width: 900px)');
+  const setMenuOpen = (isOpen) => {
+    const shouldOpen = Boolean(isOpen) && mobileBreakpoint.matches;
+    menuButton.setAttribute('aria-expanded', String(shouldOpen));
+    menuButton.setAttribute('aria-label', shouldOpen ? 'Close navigation menu' : 'Open navigation menu');
+    mobileMenu.hidden = !shouldOpen;
+  };
+  menuButton.addEventListener('click', () => {
+    setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
+  });
+  mobileMenu.addEventListener('click', (event) => {
+    if (event.target.closest('a')) setMenuOpen(false);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setMenuOpen(false);
+  });
+  document.addEventListener('click', (event) => {
+    if (!header.contains(event.target)) setMenuOpen(false);
+  });
+  const handleBreakpointChange = () => setMenuOpen(false);
+  if (mobileBreakpoint.addEventListener) mobileBreakpoint.addEventListener('change', handleBreakpointChange);
+  else mobileBreakpoint.addListener(handleBreakpointChange);
+  setMenuOpen(false);
+})();
