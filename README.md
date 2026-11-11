@@ -94,6 +94,10 @@ sample flight offers, and discover travel options.
 
 ## Author
 
+Somayeh Hassanzada
+
+Project Leader & Front-End Develope
+
 **Project Team**
 
  Somayeh Hassanzada
