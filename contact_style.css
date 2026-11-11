@@ -2375,3 +2375,38 @@ kbd {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* Mobile navigation: keep the dropdown usable on narrow screens. */
+@media (max-width: 780px) {
+  .sw-header { position: sticky; top: 0; }
+  .sw-nav-shell { position: relative; }
+  .sw-mobile-nav {
+    width: min(100% - 32px, 1240px);
+    max-height: calc(100vh - 84px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 10px 0 20px;
+    background: var(--sw-glass);
+    color: var(--sw-text);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+  }
+  .sw-mobile-nav > a {
+    display: block;
+    min-height: 46px;
+    padding: 13px 8px;
+    color: var(--sw-text);
+    border-bottom: 1px solid var(--sw-border);
+  }
+  .sw-mobile-nav > a:hover,
+  .sw-mobile-nav > a[aria-current="page"] {
+    color: var(--sw-accent);
+  }
+  .sw-mobile-actions { padding: 16px 0 4px; }
+  .sw-menu-toggle { flex: 0 0 40px; }
+}
+@media (max-width: 480px) {
+  .sw-mobile-nav { width: calc(100% - 28px); }
+  .sw-mobile-actions { gap: 8px; }
+  .sw-mobile-actions .sw-button { min-width: 0; padding-inline: 10px; }
+}
