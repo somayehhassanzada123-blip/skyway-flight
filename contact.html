@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | SkyWay</title>
+    <meta name="description" content="Contact SkyWay support 24/7 about bookings, changes, refunds and payments. Send a message and get a reply in under 2 hours.">
+    <link rel="stylesheet" href="contact_style.css">
+
+    <!-- Apply the saved theme before the page paints (prevents a flash) -->
+    <script>
+        (function () {
+            var root = document.documentElement;
+            root.classList.add("js");
+            try {
+                var theme = localStorage.getItem("skyway-theme");
+                if (theme !== "light" && theme !== "dark") {
+                    theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+                }
+                root.dataset.theme = theme;
+            } catch (e) { /* storage blocked: keep default */ }
+        })();
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/shared.css">
+    <link rel="stylesheet" href="css/contact.css">
+
+    <!-- Scripts -->
+    <script src="js/shared.js" defer></script>
+    <script src="js/contact.js" defer></script>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+    <header class="sw-header" data-sw-header>
+  <div class="sw-nav-shell">
+    <a class="sw-brand" href="./index.html" aria-label="SkyWay home">
+      <span class="sw-brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none">
+          <path d="M5 22.2 34.8 7.5 23.1 35l-4.2-10.8L5 22.2Z" fill="currentColor" opacity=".96"/>
+          <path d="m18.9 24.2 7.6-7.1" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="sw-brand-name">Sky<span>Way</span></span>
+    </a>
+
+    <nav class="sw-primary-nav" aria-label="Main navigation">
+      <a href="./index.html">Home</a>
+      <a href="./flights.html">Flights</a>
+      <a href="./hotels.html">Hotels</a>
+      <a href="./packages.html">Packages</a>
+      <a href="./deals.html">Deals</a>
+      <a href="./about.html">About Us</a>
+    </nav>
+
+    <div class="sw-nav-actions">
+      <button class="sw-theme-toggle" type="button" data-sw-theme-toggle aria-label="Switch to light theme" title="Toggle theme">
+        <svg class="sw-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.4A8.7 8.7 0 0 1 8.6 3.8 8.8 8.8 0 1 0 20.2 15.4Z"/></svg>
+        <svg class="sw-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+      </button>
+      <a class="sw-button sw-button-quiet" href="./login.html">Log in</a>
+      <a class="sw-button sw-button-primary" href="./signup.html">Sign up</a>
+    </div>
+
+    <button class="sw-menu-toggle" type="button" data-sw-menu-toggle aria-expanded="false" aria-controls="sw-mobile-menu" aria-label="Open navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="sw-mobile-nav" id="sw-mobile-menu" data-sw-mobile-menu aria-label="Mobile navigation" hidden>
+    <a href="./index.html">Home</a>
+    <a href="./flights.html">Flights</a>
+    <a href="./hotels.html">Hotels</a>
+    <a href="./packages.html">Packages</a>
+    <a href="./deals.html">Deals</a>
+    <a href="./about.html">About Us</a>
+    <div class="sw-mobile-actions">
+      <a class="sw-button sw-button-quiet" href="./login.html">Log in</a>
+      <a class="sw-button sw-button-primary" href="./signup.html">Sign up</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ===================== MAIN CONTENT ===================== -->
+<main class="page" id="main">
+
+    <!-- Decorative sky background -->
+    <div class="sky-bg" aria-hidden="true">
+        <i class="fa-solid fa-cloud sky-cloud" style="--top: 70px;  --size: 90px;  --duration: 70s; --delay: -10s"></i>
+        <i class="fa-solid fa-cloud sky-cloud" style="--top: 210px; --size: 140px; --duration: 95s; --delay: -55s"></i>
+        <i class="fa-solid fa-cloud sky-cloud" style="--top: 380px; --size: 70px;  --duration: 60s; --delay: -30s"></i>
+        <i class="fa-solid fa-cloud sky-cloud" style="--top: 520px; --size: 110px; --duration: 85s; --delay: -70s"></i>
+        <i class="fa-solid fa-plane sky-plane"></i>
+    </div>
+
+    <!-- ---------- HERO ---------- -->
+    <section class="hero container" aria-labelledby="hero-title">
+        <div class="hero__inner">
+            <span class="badge" data-reveal>
+                <span class="live-dot live-dot--sm"></span>
+                Flight Ops Control Center • 24/7 Live
+            </span>
+
+            <h1 class="hero__title" id="hero-title" data-reveal data-reveal-delay="80">
+                Connecting You to the <span class="text-gradient">Clear Skies</span>
+            </h1>
+
+            <p class="hero__lead" data-reveal data-reveal-delay="160">
+                Whether you're asking about a booking, need help with a change or refund, or want to partner with us,
+                our support crew is ready for takeoff.
+            </p>
+
+            <dl class="stats" data-reveal data-reveal-delay="240">
+                <div class="stat">
+                    <dt class="stat__label">Average reply</dt>
+                    <dd class="stat__value">&lt;<span data-count="2">0</span>h</dd>
+                </div>
+                <div class="stat">
+                    <dt class="stat__label">Happy travelers</dt>
+                    <dd class="stat__value"><span data-count="98">0</span>%</dd>
+                </div>
+                <div class="stat">
+                    <dt class="stat__label">Countries served</dt>
+                    <dd class="stat__value"><span data-count="120">0</span>+</dd>
+                </div>
+            </dl>
+        </div>
+    </section>
+
+    <!-- ---------- CONTACT (info + form) ---------- -->
+    <section class="contact container" aria-label="Contact SkyWay">
+        <div class="contact__grid">
+
+            <!-- LEFT: contact information -->
+            <aside class="contact__aside" aria-label="Contact information">
+
+                <!-- Dispatch board -->
+                <article class="card dispatch" data-reveal>
+                    <i class="fa-solid fa-plane-arrival dispatch__watermark" aria-hidden="true"></i>
+
+                    <header class="dispatch__head">
+                        <span class="eyebrow">
+                            <i class="fa-solid fa-tower-broadcast is-pulsing" aria-hidden="true"></i>
+                            Dispatch Hub
+                        </span>
+                        <span class="status-pill"><span class="live-dot live-dot--sm"></span> On time</span>
+                    </header>
+
+                    <div class="route">
+                        <div>
+                            <div class="route__code">YOU</div>
+                            <div class="route__label">Your location</div>
+                        </div>
+
+                        <div class="route__path" aria-hidden="true">
+                            <span class="route__caption">Direct line</span>
+                            <div class="route__line">
+                                <i class="fa-solid fa-plane route__plane"></i>
+                            </div>
+                            <span class="route__eta">EST &lt; 2 HRS</span>
+                        </div>
+
+                        <div class="route__end">
+                            <div class="route__code route__code--accent">SKY</div>
+                            <div class="route__label">SkyWay HQ</div>
+                        </div>
+                    </div>
+
+                    <footer class="dispatch__foot">
+                        <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Your time: <strong data-clock="local">--:--</strong></span>
+                        <span><i class="fa-solid fa-headset" aria-hidden="true"></i> <strong data-count="24">0</strong> agents online</span>
+                    </footer>
+                </article>
+
+                <!-- HQ photo -->
+                <figure class="hq" data-reveal data-reveal-delay="80" data-tilt>
+                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80"
+                         alt="Airplane flying above blue clouds"
+                         loading="lazy"
+                         data-fallback="https://placehold.co/800x400/0284c7/ffffff?text=SkyWay">
+                    <figcaption class="hq__overlay">
+                        <span class="hq__eyebrow">Global Terminal</span>
+                        <span class="hq__title">SkyWay Aviation HQ</span>
+                        <span class="hq__addr"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Runway Terminal 4, Aero Boulevard, CA</span>
+                    </figcaption>
+                </figure>
+
+                <!-- Direct contact methods -->
+                <div class="methods">
+                    <div class="card method" data-reveal data-reveal-delay="120">
+                        <span class="method__icon" aria-hidden="true"><i class="fa-solid fa-headset"></i></span>
+                        <div class="method__body">
+                            <span class="method__label">Flight Support</span>
+                            <a class="method__value" href="tel:+18005552376">+1 (800) 555-AERO</a>
+                            <span class="method__hint">Toll-free 24/7 line</span>
+                        </div>
+                        <button class="icon-btn" type="button" data-copy="+1 (800) 555-2376" data-copy-label="Phone number copied" aria-label="Copy phone number" title="Copy">
+                            <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <div class="card method" data-reveal data-reveal-delay="180">
+                        <span class="method__icon" aria-hidden="true"><i class="fa-solid fa-envelope-open-text"></i></span>
+                        <div class="method__body">
+                            <span class="method__label">Support Email</span>
+                            <a class="method__value" href="mailto:ops@skyway.com">ops@skyway.com</a>
+                            <span class="method__hint">Encrypted channel</span>
+                        </div>
+                        <button class="icon-btn" type="button" data-copy="ops@skyway.com" data-copy-label="Email address copied" aria-label="Copy email address" title="Copy">
+                            <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- RIGHT: contact form -->
+            <section class="card form-card" data-form-card data-reveal data-reveal-delay="120" aria-labelledby="form-title">
+
+                <header class="form-card__header">
+                    <div>
+                        <span class="eyebrow"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> SkyWay Support</span>
+                        <h2 class="form-card__title" id="form-title">Send us a message</h2>
+                        <p class="form-card__subtitle">Tell us how we can help. A SkyWay specialist will reply within 2 hours.</p>
+                    </div>
+
+                    <div class="progress-ring" role="progressbar" aria-label="Form completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-progress>
+                        <svg viewBox="0 0 64 64" aria-hidden="true">
+                            <circle class="progress-ring__track" cx="32" cy="32" r="26"></circle>
+                            <circle class="progress-ring__value" cx="32" cy="32" r="26" data-progress-ring></circle>
+                        </svg>
+                        <span class="progress-ring__label"><span data-progress-value>0</span>%</span>
+                    </div>
+                </header>
+
+                <!-- FORM -->
+                <form id="contact-form" class="contact-form" novalidate>
+
+                    <!-- Step 1: topic -->
+                    <fieldset class="form-section" data-field="topic">
+                        <legend class="form-section__legend">
+                            <span class="step-index">01</span> What can we help with? <span class="req" aria-hidden="true">*</span>
+                        </legend>
+
+                        <div class="topic-grid">
+                            <label class="topic" data-ripple>
+                                <input type="radio" name="topic" value="flight" required aria-describedby="topic-error">
+                                <span class="topic__body">
+                                    <span class="topic__icon"><i class="fa-solid fa-plane-departure" aria-hidden="true"></i></span>
+                                    <span class="topic__title">Flight Booking</span>
+                                    <span class="topic__hint">New trips</span>
+                                    <span class="topic__check" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+                                </span>
+                            </label>
+                            <label class="topic" data-ripple>
+                                <input type="radio" name="topic" value="cancellation" aria-describedby="topic-error">
+                                <span class="topic__body">
+                                    <span class="topic__icon"><i class="fa-solid fa-calendar-xmark" aria-hidden="true"></i></span>
+                                    <span class="topic__title">Cancellation</span>
+                                    <span class="topic__hint">Change plans</span>
+                                    <span class="topic__check" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+                                </span>
+                            </label>
+                            <label class="topic" data-ripple>
+                                <input type="radio" name="topic" value="refund" aria-describedby="topic-error">
+                                <span class="topic__body">
+                                    <span class="topic__icon"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i></span>
+                                    <span class="topic__title">Refund</span>
+                                    <span class="topic__hint">Money back</span>
+                                    <span class="topic__check" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+                                </span>
+                            </label>
+                            <label class="topic" data-ripple>
+                                <input type="radio" name="topic" value="payment" aria-describedby="topic-error">
+                                <span class="topic__body">
+                                    <span class="topic__icon"><i class="fa-solid fa-credit-card" aria-hidden="true"></i></span>
+                                    <span class="topic__title">Payment</span>
+                                    <span class="topic__hint">Billing help</span>
+                                    <span class="topic__check" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+                                </span>
+                            </label>
+                            <label class="topic" data-ripple>
+                                <input type="radio" name="topic" value="other" aria-describedby="topic-error">
+                                <span class="topic__body">
+                                    <span class="topic__icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span>
+                                    <span class="topic__title">Other</span>
+                                    <span class="topic__hint">Anything else</span>
+                                    <span class="topic__check" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+                                </span>
+                            </label>
+                        </div>
+                        <p class="field__error" id="topic-error" data-error></p>
+                    </fieldset>
+
+                    <!-- Step 2: details -->
+                    <fieldset class="form-section">
+                        <legend class="form-section__legend">
+                            <span class="step-index">02</span> Your details
+                        </legend>
+
+                        <div class="field-grid">
+                            <div class="field" data-field="name">
+                                <div class="field__control">
+                                    <input class="field__input" type="text" id="name" name="name" autocomplete="name" maxlength="80" required placeholder=" " aria-describedby="name-error">
+                                    <i class="fa-solid fa-user field__icon" aria-hidden="true"></i>
+                                    <label class="field__label" for="name">Full name <span class="req">*</span></label>
+                                    <span class="field__status" aria-hidden="true"><i class="fa-solid fa-check"></i><i class="fa-solid fa-exclamation"></i></span>
+                                </div>
+                                <p class="field__error" id="name-error" data-error></p>
+                            </div>
+
+                            <div class="field" data-field="email">
+                                <div class="field__control">
+                                    <input class="field__input" type="email" id="email" name="email" autocomplete="email" maxlength="120" required placeholder=" " aria-describedby="email-error">
+                                    <i class="fa-solid fa-envelope field__icon" aria-hidden="true"></i>
+                                    <label class="field__label" for="email">Email address <span class="req">*</span></label>
+                                    <span class="field__status" aria-hidden="true"><i class="fa-solid fa-check"></i><i class="fa-solid fa-exclamation"></i></span>
+                                </div>
+                                <p class="field__error" id="email-error" data-error></p>
+                            </div>
+
+                            <div class="field" data-field="phone">
+                                <div class="field__control">
+                                    <input class="field__input" type="tel" id="phone" name="phone" autocomplete="tel" maxlength="20" inputmode="tel" placeholder=" " aria-describedby="phone-error">
+                                    <i class="fa-solid fa-phone field__icon" aria-hidden="true"></i>
+                                    <label class="field__label" for="phone">Phone number <span class="field__optional" data-phone-optional>(optional)</span><span class="req" data-phone-required hidden>*</span></label>
+                                    <span class="field__status" aria-hidden="true"><i class="fa-solid fa-check"></i><i class="fa-solid fa-exclamation"></i></span>
+                                </div>
+                                <p class="field__error" id="phone-error" data-error></p>
+                            </div>
+
+                            <div class="field" data-field="booking">
+                                <div class="field__control">
+                                    <input class="field__input field__input--mono" type="text" id="booking" name="booking" maxlength="6" autocomplete="off" spellcheck="false" placeholder=" " aria-describedby="booking-error booking-hint">
+                                    <i class="fa-solid fa-ticket field__icon" aria-hidden="true"></i>
+                                    <label class="field__label" for="booking">Booking reference <span class="field__optional">(optional)</span></label>
+                                    <span class="field__status" aria-hidden="true"><i class="fa-solid fa-check"></i><i class="fa-solid fa-exclamation"></i></span>
+                                </div>
+                                <p class="field__hint" id="booking-hint">6 characters, e.g. SKY4K2</p>
+                                <p class="field__error" id="booking-error" data-error></p>
+                            </div>
+
+                            <div class="field field--full">
+                                <span class="field__static-label" id="method-label">Preferred way to reach you</span>
+                                <div class="segmented" role="radiogroup" aria-labelledby="method-label" data-segmented>
+                                    <label>
+                                        <input type="radio" name="contactMethod" value="email" checked>
+                                        <span><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="contactMethod" value="phone">
+                                        <span><i class="fa-solid fa-phone" aria-hidden="true"></i> Phone call</span>
+                                    </label>
+                                    <span class="segmented__thumb" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Step 3: message -->
+                    <fieldset class="form-section">
+                        <legend class="form-section__legend">
+                            <span class="step-index">03</span> Your message
+                        </legend>
+
+                        <div class="field" data-field="message">
+                            <div class="field__control">
+                                <textarea class="field__input field__input--textarea" id="message" name="message" rows="5" maxlength="1000" required placeholder=" " aria-describedby="message-error message-count"></textarea>
+                                <i class="fa-solid fa-comment-dots field__icon" aria-hidden="true"></i>
+                                <label class="field__label" for="message">How can we help? <span class="req">*</span></label>
+                                <span class="field__status" aria-hidden="true"><i class="fa-solid fa-check"></i><i class="fa-solid fa-exclamation"></i></span>
+                            </div>
+                            <div class="field__meta">
+                                <p class="field__error" id="message-error" data-error></p>
+                                <span class="char-count" id="message-count" data-char-count>0 / 1000</span>
+                            </div>
+                        </div>
+
+                        <div class="field consent-field" data-field="consent">
+                            <label class="consent">
+                                <input type="checkbox" id="consent" name="consent" required aria-describedby="consent-error">
+                                <span class="consent__box" aria-hidden="true">
+                                    <svg viewBox="0 0 16 16"><path d="M3.5 8.5 6.5 11.5 12.5 4.5"/></svg>
+                                </span>
+                                <span>I agree to the <a href="./terms.html">terms</a> and <a href="./privacy.html">privacy policy</a>. <span class="req">*</span></span>
+                            </label>
+                            <p class="field__error" id="consent-error" data-error></p>
+                        </div>
+                    </fieldset>
+
+                    <!-- Actions -->
+                    <div class="form-actions">
+                        <button class="btn btn--primary btn--block btn--shimmer" type="submit" data-submit data-ripple>
+                            <span class="btn__spinner" aria-hidden="true"></span>
+                            <span data-submit-label>Send Message</span>
+                            <i class="fa-solid fa-paper-plane btn__icon" aria-hidden="true"></i>
+                        </button>
+
+                        <div class="form-actions__meta">
+                            <span><i class="fa-solid fa-lock" aria-hidden="true"></i> Your details are encrypted and never shared.</span>
+                            <span class="shortcut-hint">Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to send</span>
+                        </div>
+                        <p class="draft-status" data-draft-status role="status" aria-live="polite"></p>
+                    </div>
+                </form>
+
+                <!-- SUCCESS STATE -->
+                <div class="form-success" data-form-success tabindex="-1" hidden>
+                    <svg class="success-check" viewBox="0 0 52 52" aria-hidden="true">
+                        <circle cx="26" cy="26" r="24"></circle>
+                        <path d="M15 27 22.5 34 37 19"></path>
+                    </svg>
+
+                    <h3 class="form-success__title">Message sent successfully!</h3>
+                    <p class="form-success__text">
+                        Thank you, <strong data-success-name></strong>. Our team will reply
+                        <span data-success-channel></span> within 2 hours.
+                    </p>
+
+                    <div class="ticket">
+                        <div>
+                            <span class="ticket__label">Your ticket number</span>
+                            <strong class="ticket__value" data-success-ticket>SKY-000000</strong>
+                        </div>
+                        <button class="icon-btn" type="button" data-copy-ticket aria-label="Copy ticket number" title="Copy">
+                            <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <button class="btn btn--ghost" type="button" data-reset-form data-ripple>
+                        <i class="fa-solid fa-rotate-right" aria-hidden="true"></i> Send another message
+                    </button>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- ---------- GLOBAL HUBS ---------- -->
+    <section class="container">
+        <div class="card hubs" data-reveal aria-labelledby="hubs-title">
+            <div class="hubs__head">
+                <div>
+                    <h2 class="section-title" id="hubs-title"><i class="fa-solid fa-earth-americas" aria-hidden="true"></i> Global Support Terminals</h2>
+                    <p class="section-text">Choose a hub to see its address, local time and coordinates. Use the arrow keys to switch.</p>
+                </div>
+
+                <div class="hub-tabs" role="tablist" aria-label="Support hubs">
+                    <button class="hub-tab" type="button" role="tab" id="hub-tab-LAX" aria-controls="hub-panel" aria-selected="true" data-hub="LAX" data-ripple>Los Angeles <span>LAX</span></button>
+                    <button class="hub-tab" type="button" role="tab" id="hub-tab-LHR" aria-controls="hub-panel" aria-selected="false" tabindex="-1" data-hub="LHR" data-ripple>London <span>LHR</span></button>
+                    <button class="hub-tab" type="button" role="tab" id="hub-tab-HND" aria-controls="hub-panel" aria-selected="false" tabindex="-1" data-hub="HND" data-ripple>Tokyo <span>HND</span></button>
+                </div>
+            </div>
+
+            <div class="hub-view" id="hub-panel" role="tabpanel" aria-labelledby="hub-tab-LAX">
+                <img class="hub-view__img is-active" data-hub-img
+                     src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=1400&q=80"
+                     alt="Los Angeles airport runway">
+                <img class="hub-view__img" data-hub-img alt="">
+                <div class="hub-view__shade" aria-hidden="true"></div>
+
+                <span class="hub-pin" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
+
+                <div class="hub-info" data-hub-info>
+                    <div class="hub-info__main">
+                        <span class="live-dot"></span>
+                        <div>
+                            <div class="hub-info__title" data-hub-title>Los Angeles International Hub (LAX)</div>
+                            <div class="hub-info__desc" data-hub-desc>Terminal 4, Flight Suite 102 • 24/7 Operations</div>
+                        </div>
+                    </div>
+
+                    <div class="hub-info__meta">
+                        <span class="chip"><i class="fa-regular fa-clock" aria-hidden="true"></i> <span data-hub-time data-clock="America/Los_Angeles">--:--</span></span>
+                        <button class="chip chip--btn" type="button" data-hub-copy aria-label="Copy coordinates">
+                            <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i> <span data-hub-coord>33.9416° N, 118.4085° W</span>
+                        </button>
+                        <a class="chip chip--btn" data-hub-directions href="https://www.google.com/maps/search/?api=1&query=33.9416,-118.4085" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ---------- FAQ ---------- -->
+    <section class="faq container" aria-labelledby="faq-title">
+        <div class="faq__intro" data-reveal>
+            <span class="eyebrow"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Quick answers</span>
+            <h2 class="faq__title" id="faq-title">Frequently asked questions</h2>
+            <p class="faq__text">Find quick answers before you write to us. Still need help? Our team is one message away.</p>
+            <a class="btn btn--ghost faq__cta" href="./help.html" data-ripple>
+                Visit Help Center <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div class="faq__list">
+            <div class="card faq-item" data-faq data-reveal>
+                <h3>
+                    <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-1" data-faq-trigger>
+                        How quickly will I get a reply?
+                        <span class="faq-item__icon" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
+                    </button>
+                </h3>
+                <div class="faq-item__panel" id="faq-1" role="region">
+                    <div><p>Most messages are answered in under 2 hours, any day of the year. Urgent travel issues are prioritised by our 24/7 dispatch team.</p></div>
+                </div>
+            </div>
+
+            <div class="card faq-item" data-faq data-reveal data-reveal-delay="60">
+                <h3>
+                    <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-2" data-faq-trigger>
+                        Where do I find my booking reference?
+                        <span class="faq-item__icon" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
+                    </button>
+                </h3>
+                <div class="faq-item__panel" id="faq-2" role="region">
+                    <div><p>Your 6-character booking reference is at the top of your confirmation email and e-ticket. Adding it to your message helps us find your trip faster.</p></div>
+                </div>
+            </div>
+
+            <div class="card faq-item" data-faq data-reveal data-reveal-delay="120">
+                <h3>
+                    <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-3" data-faq-trigger>
+                        How long do refunds take?
+                        <span class="faq-item__icon" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
+                    </button>
+                </h3>
+                <div class="faq-item__panel" id="faq-3" role="region">
+                    <div><p>Approved refunds are sent back to your original payment method within 5–10 business days, depending on your bank.</p></div>
+                </div>
+            </div>
+
+            <div class="card faq-item" data-faq data-reveal data-reveal-delay="180">
+                <h3>
+                    <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-4" data-faq-trigger>
+                        Can I change my flight date?
+                        <span class="faq-item__icon" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
+                    </button>
+                </h3>
+                <div class="faq-item__panel" id="faq-4" role="region">
+                    <div><p>Yes. Choose “Cancellation” in the form above, add your booking reference and preferred new date, and we'll send you the available options.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+  <footer class="sw-footer">
+  <div class="sw-footer-glow" aria-hidden="true"></div>
+  <div class="sw-footer-inner">
+    <div class="sw-footer-grid">
+      <section class="sw-footer-brand">
+        <a class="sw-brand" href="./index.html" aria-label="SkyWay home">
+          <span class="sw-brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none"><path d="M5 22.2 34.8 7.5 23.1 35l-4.2-10.8L5 22.2Z" fill="currentColor" opacity=".96"/><path d="m18.9 24.2 7.6-7.1" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </span>
+          <span class="sw-brand-name">Sky<span>Way</span></span>
+        </a>
+        <p class="sw-footer-description">The world is closer than you think. Discover destinations, explore possibilities and travel with SkyWay.</p>
+        <div class="sw-socials" aria-label="Social media">
+          <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+          <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h3l.5-4H14V7c0-1.2.4-2 2-2h2V1.4C17.3 1.2 16.2 1 15 1c-3.1 0-5 1.9-5 5.4V9H7v4h3v8"/></svg></a>
+          <a href="https://x.com/" aria-label="X" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 3 16 18M20 3 4 21M4 3h4l12 18h-4L4 3Z"/></svg></a>
+          <a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v11M4 4.5v.1M9 20v-6.2c0-2.1 1.2-3.3 3-3.3s3 1.2 3 3.3V20m0-6.2c0-2.1 1.2-3.3 3-3.3s3 1.2 3 3.3V20M9 9v11"/></svg></a>
+        </div>
+      </section>
+
+      <nav class="sw-footer-links" aria-label="Explore">
+        <h2>Explore</h2>
+        <a href="./flights.html">Find Flights</a>
+        <a href="./hotels.html">Hotels</a>
+        <a href="./packages.html">Travel Packages</a>
+        <a href="./deals.html">Special Deals</a>
+        <a href="./destinations.html">Popular Destinations</a>
+      </nav>
+
+      <nav class="sw-footer-links" aria-label="Company">
+        <h2>Company</h2>
+        <a href="./about.html">About Us</a>
+        <a href="./contact.html">Contact Us</a>
+        <a href="./faqs.html">FAQs</a>
+        <a href="./help.html">Help Center</a>
+        <a href="./careers.html">Careers</a>
+      </nav>
+
+      <section class="sw-newsletter">
+        <h2>Stay Inspired, Travel More</h2>
+        <p>Subscribe to receive travel inspiration, exclusive offers and the latest updates.</p>
+        <form class="sw-newsletter-form" data-sw-newsletter novalidate>
+          <label class="sw-sr-only" for="sw-newsletter-email">Email address</label>
+          <div class="sw-newsletter-control">
+            <input id="sw-newsletter-email" name="email" type="email" autocomplete="email" placeholder="Your email address" required aria-describedby="sw-newsletter-message">
+            <button type="submit" aria-label="Subscribe to newsletter">
+              <span>Subscribe</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5"/></svg>
+            </button>
+          </div>
+          <p class="sw-form-message" id="sw-newsletter-message" data-sw-newsletter-message role="status" aria-live="polite"></p>
+        </form>
+        <p class="sw-newsletter-note">By subscribing, you agree to receive occasional emails from SkyWay.</p>
+      </section>
+    </div>
+
+    <div class="sw-footer-bottom">
+      <p>© <span data-sw-year></span> SkyWay. All rights reserved.</p>
+      <nav aria-label="Legal">
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="./terms.html">Terms &amp; Conditions</a>
+        <a href="./cookies.html">Cookie Policy</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast notifications -->
+<div class="toast-region" data-toast-region aria-live="polite" aria-atomic="false"></div>
+<script src="contact_javascript.js"></script>
+
+</body>
+</html>
