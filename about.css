@@ -535,7 +535,9 @@
   max-width: 430px;
 }
 
-
+.learn-more a {
+    text-decoration: none;
+}
 .learn-more {
   display: inline-flex;
 
