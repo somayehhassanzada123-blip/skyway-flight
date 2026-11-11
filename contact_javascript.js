@@ -983,10 +983,6 @@
     updateScrollState();
     window.addEventListener("scroll", updateScrollState, { passive: true });
 
-    document.querySelector("[data-sw-theme-toggle]")?.addEventListener("click", () => {
-      applyTheme(root.dataset.theme === "dark" ? "light" : "dark");
-    });
-
     function closeMenu() {
       if (!menuButton || !mobileMenu) return;
       menuButton.setAttribute("aria-expanded", "false");
