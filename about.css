@@ -535,9 +535,7 @@
   max-width: 430px;
 }
 
-.learn-more a {
-    text-decoration: none;
-}
+
 .learn-more {
   display: inline-flex;
 
@@ -553,7 +551,9 @@
 
   color: white;
 
-  text-decoration: none;
+  
+
+  text-decoration: none important!;
 
   font-size: 11px;
 
