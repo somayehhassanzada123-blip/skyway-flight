@@ -1,3 +1,4 @@
+
 .destinations {
   width: 90%;
   max-width: 1250px;
@@ -1575,3 +1576,32 @@ body {
 @media (prefers-reduced-motion: reduce) {
   body, .destinations { transition: none; }
 }
+
+
+/* Responsive SkyWay navbar: preserve the existing desktop design and colors. */
+@media (max-width: 900px) {
+  .sw-nav-shell { width: min(100% - 32px, 1240px); min-height: 72px; gap: 12px; }
+  .sw-primary-nav, .sw-nav-actions > .sw-button { display: none; }
+  .sw-nav-actions { margin-left: auto; }
+  .sw-menu-toggle { display: inline-grid; flex: 0 0 40px; }
+  .sw-mobile-nav {
+    width: calc(100% - 32px); max-height: calc(100dvh - 82px);
+    overflow-y: auto; overscroll-behavior: contain; padding: 10px 0 18px;
+    background: var(--sw-glass);
+  }
+  .sw-mobile-nav > a { padding: 13px 8px; }
+}
+@media (max-width: 480px) {
+  .sw-nav-shell { width: calc(100% - 24px); min-height: 66px; }
+  .sw-brand-mark { width: 36px; height: 36px; border-radius: 11px; }
+  .sw-brand-name { font-size: 21px; }
+  .sw-nav-actions { gap: 7px; }
+  .sw-theme-toggle, .sw-menu-toggle { width: 38px; height: 38px; }
+  .sw-mobile-nav { width: calc(100% - 24px); max-height: calc(100dvh - 76px); }
+  .sw-mobile-actions { gap: 8px; }
+  .sw-mobile-actions .sw-button { min-width: 0; padding: 0 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sw-menu-toggle span, .sw-mobile-nav, .sw-mobile-nav * { transition: none !important; }
+}
+
