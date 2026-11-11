@@ -96,11 +96,15 @@ sample flight offers, and discover travel options.
 
 **Project Team**
 
-- Somayeh Hassanzada
-- سمیه فرحند
-- مریم وهاب زاده
-- فضیله اکرمی
+ Somayeh Hassanzada
 
-------------------------------------------------------------------------
+ Somaya Farand
+
+ Maryam Wahabzada
+
+ Fazila Akrami
+
+ Mastaa Sadat
+
 
 *SkyWay --- The world is closer than you think.*
