@@ -973,35 +973,14 @@
   }
 
   function initInteractions() {
+    // The shared navbar initializer above owns mobile-menu interactions.
+    // Keep only the scroll shadow here to avoid attaching a second click handler.
     const header = document.querySelector("[data-sw-header]");
-    const menuButton = document.querySelector("[data-sw-menu-toggle]");
-    const mobileMenu = document.querySelector("[data-sw-mobile-menu]");
-
     const updateScrollState = () => {
       if (header) header.classList.toggle("is-scrolled", window.scrollY > 8);
     };
     updateScrollState();
     window.addEventListener("scroll", updateScrollState, { passive: true });
-
-    function closeMenu() {
-      if (!menuButton || !mobileMenu) return;
-      menuButton.setAttribute("aria-expanded", "false");
-      menuButton.setAttribute("aria-label", "Open navigation menu");
-      mobileMenu.hidden = true;
-    }
-    menuButton?.addEventListener("click", () => {
-      const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-      menuButton.setAttribute("aria-expanded", String(!isOpen));
-      menuButton.setAttribute("aria-label", isOpen ? "Open navigation menu" : "Close navigation menu");
-      mobileMenu.hidden = isOpen;
-    });
-    mobileMenu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") closeMenu();
-    });
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 780) closeMenu();
-    });
 
     const year = document.querySelector("[data-sw-year]");
     if (year) year.textContent = String(new Date().getFullYear());
